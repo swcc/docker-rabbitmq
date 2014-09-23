@@ -10,7 +10,13 @@ RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.
 RUN curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc >> rabbitmq-signing-key-public.asc
 RUN sudo apt-key add rabbitmq-signing-key-public.asc
 RUN apt-get update && apt-get install -y rabbitmq-server
+# ################
 
+# Create a runit entry for your app
+RUN mkdir -p /etc/service/rabbitmq
+ADD run.sh /etc/service/rabbitmq/run
+RUN chown root /etc/service/rabbitmq/run
+RUN chmod +x /etc/service/rabbitmq/run
 
 # Clean up APT when done
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
