@@ -18,12 +18,15 @@ ADD run.sh /etc/service/rabbitmq/run
 RUN chown root /etc/service/rabbitmq/run
 RUN chmod +x /etc/service/rabbitmq/run
 
+# And a setup script
+ADD build/setup.sh /etc/rabbitmq/setup.sh
+RUN chmod +x /etc/rabbitmq/setup.sh
+
 # Clean up APT when done
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Spin-docker currently supports exposing port 22 for SSH and
-# one additional application port (RabbitMQ runs on 5672)
+# expose application port (RabbitMQ runs on 5672)
 EXPOSE 5672
 
 # Use baseimage-docker's init system
-CMD ["/sbin/my_init"]
+CMD ["/etc/rabbitmq/setup.sh"]
