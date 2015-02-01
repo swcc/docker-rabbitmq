@@ -1,5 +1,7 @@
 # Docker RabbitMQ Server
 
+[![Docker Hub](https://img.shields.io/badge/docker-swcc%2Fdocker--rabbitmq-blue.svg?style=flat)](https://registry.hub.docker.com/u/swcc/docker-rabbitmq/)
+
 Then, build the Docker container:
 
 ```bash
