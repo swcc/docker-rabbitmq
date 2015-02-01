@@ -4,6 +4,9 @@ MAINTAINER paul+swcc@bonaud.fr
 # Set correct environment variables
 ENV HOME /root
 
+# Disable SSH
+RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
+
 # ################
 # Install RabbitMQ
 RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list.d/rabbitmq.list
