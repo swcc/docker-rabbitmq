@@ -21,4 +21,3 @@ _[] options means they are optional_
   * [] `-v /tmp/rabbitmq:/var/lib/rabbitmq/mnesia` - Use a local directory to persist rabbitmq data
   * [] `-e USER=myuser -e PASSWORD=mypwd -e VHOST=myvhost` - Creates a user and an associated vhost on startup
   * `/sbin/my_init` - Run the init scripts used to kick off long-running processes and other bootstrapping, as per [phusion/baseimage-docker](https://github.com/phusion/baseimage-docker)
-
