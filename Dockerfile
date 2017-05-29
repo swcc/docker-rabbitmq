@@ -9,8 +9,8 @@ RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # ################
 # Install RabbitMQ
-RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list.d/rabbitmq.list
-RUN curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc >> rabbitmq-signing-key-public.asc
+RUN echo "deb https://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list.d/rabbitmq.list
+RUN curl http://www.rabbitmq.com/rabbitmq-release-signing-key.asc >> rabbitmq-signing-key-public.asc
 RUN sudo apt-key add rabbitmq-signing-key-public.asc
 RUN apt-get update && apt-get install -y rabbitmq-server
 # ################
